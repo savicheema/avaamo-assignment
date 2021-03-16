@@ -21,21 +21,23 @@ class App extends React.Component {
           <div className="count">Pos</div>
           <div className="synonyms">synonyms</div>
         </div>
-        {wordsList.map((word, index) => {
-          return (
-            <div className="word" key={index}>
-              <div className="text">{word.text}</div>
-              <div className="count">{word.count}</div>
-              <div className="count">{word.pos || "loading"}</div>
-              <div className="synonyms">
-                {word.synonyms &&
-                  word.synonyms.map((syn) => {
-                    return <div className="syn">{syn.text}</div>;
-                  })}
+        {!!wordsList.length &&
+          wordsList.map((word, index) => {
+            return (
+              <div className="word" key={index}>
+                <div className="text">{word.text}</div>
+                <div className="count">{word.count}</div>
+                <div className="count">{word.pos || "loading"}</div>
+                <div className="synonyms">
+                  {word.synonyms &&
+                    word.synonyms.map((syn) => {
+                      return <div className="syn">{syn.text}</div>;
+                    })}
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        {!wordsList.length && "Loading..."}
       </div>
     );
   }
