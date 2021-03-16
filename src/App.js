@@ -57,7 +57,7 @@ class App extends React.Component {
       var open = XMLHttpRequest.prototype.open;
       XMLHttpRequest.prototype.open = function () {
         var args = slice.call(arguments);
-        var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+        var targetOrigin = /^https?:\/\/([^/]+)/i.exec(args[1]);
         if (
           targetOrigin &&
           targetOrigin[0].toLowerCase() !== origin &&
@@ -132,26 +132,26 @@ class App extends React.Component {
           const word = wordsInLine[j].toLowerCase();
           if (word in wordsDict) wordsDict[word].count += 1;
           else {
-            const exclude = [
-              "the",
-              "of",
-              "and",
-              "i",
-              "his",
-              "a",
-              "to",
-              "in",
-              "he",
-              "was",
-              "you",
-              "my",
-              "that",
-              "it",
-              "had",
-              "with",
-              "by",
-              "as",
-            ];
+            // const exclude = [
+            //   "the",
+            //   "of",
+            //   "and",
+            //   "i",
+            //   "his",
+            //   "a",
+            //   "to",
+            //   "in",
+            //   "he",
+            //   "was",
+            //   "you",
+            //   "my",
+            //   "that",
+            //   "it",
+            //   "had",
+            //   "with",
+            //   "by",
+            //   "as",
+            // ];
             // if (!word || exclude.includes(word)) continue;
             if (!word) continue;
             wordsDict[word] = {};
